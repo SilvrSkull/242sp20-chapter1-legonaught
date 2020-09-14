@@ -1,20 +1,21 @@
 /**
- * This class represents a simple picture. You can draw the picture using
- * the draw method. But wait, there's more: being an electronic picture, it
- * can be changed. You can set it to black-and-white display and back to
- * colors (only after it's been drawn, of course).
- *
- * This class was written as an early example for teaching Java with BlueJ.
+ * This class draws a picture of a vase, on the vase is an etching
+ * of the Triforce and an etching of the Hero of Time.
  * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2016.02.29
+ * @author  Benjamin E. Kiley
+ * @version 2020.09.14
  */
 public class Picture
 {
-    private Square wall;
-    private Square window;
-    private Triangle roof;
-    private Circle sun;
+    private Circle vHandle;
+    private Circle vInHandle;
+    private Circle vBase;
+    private Square vNeck;
+    private Circle vTop;
+    private Triangle vSpout;
+    private Triangle triforce;
+    private Triangle inForce;
+    private Person link;
     private boolean drawn;
 
     /**
@@ -22,10 +23,15 @@ public class Picture
      */
     public Picture()
     {
-        wall = new Square();
-        window = new Square();
-        roof = new Triangle();  
-        sun = new Circle();
+        vHandle = new Circle();
+        vInHandle = new Circle();
+        vBase = new Circle();
+        vNeck = new Square();
+        vTop = new Circle();
+        vSpout = new Triangle();
+        triforce = new Triangle();
+        inForce = new Triangle();
+        link = new Person();
         drawn = false;
     }
 
@@ -35,28 +41,60 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.changeColor("blue");
-            wall.makeVisible();
+            vHandle.changeColor("blue");
+            vHandle.changeSize(80);
+            vHandle.moveHorizontal(18);
+            vHandle.moveVertical(82);
+            vHandle.makeVisible();
             
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
-    
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
-    
-            sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
-            sun.changeSize(80);
-            sun.makeVisible();
+            vInHandle.changeColor("black");
+            vInHandle.changeSize(70);
+            vInHandle.moveHorizontal(20);
+            vInHandle.moveVertical(90);
+            vInHandle.makeVisible();
+            
+            vBase.changeColor("blue");
+            vBase.changeSize(100);
+            vBase.moveHorizontal(-20);
+            vBase.moveVertical(120);
+            vBase.makeVisible();
+            
+            vNeck.changeColor("blue");
+            vNeck.changeSize(40);
+            vNeck.moveHorizontal(-70);
+            vNeck.moveVertical(58);
+            vNeck.makeVisible();
+            
+            vTop.changeColor("blue");
+            vTop.changeSize(42);
+            vTop.moveHorizontal(8);
+            vTop.moveVertical(60);
+            vTop.makeVisible();
+            
+            vSpout.changeColor("blue");
+            vSpout.changeSize(-25, 30);
+            vSpout.moveHorizontal(30);
+            vSpout.moveVertical(50);
+            vSpout.makeVisible();
+            
+            triforce.changeColor("yellow");
+            triforce.changeSize(50, 60);
+            triforce.moveHorizontal(50);
+            triforce.moveVertical(85);
+            triforce.makeVisible();
+            
+            inForce.changeColor("blue");
+            inForce.changeSize(-25, 28);
+            inForce.moveHorizontal(50);
+            inForce.moveVertical(135);
+            inForce.makeVisible();
+            
+            link.changeColor("green");
+            link.changeSize(30, 18);
+            link.moveHorizontal(-19);
+            link.moveVertical(0);
+            link.makeVisible();
+            
             drawn = true;
         }
     }
@@ -66,10 +104,15 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
-        sun.changeColor("black");
+        vHandle.changeColor("white");
+        vInHandle.changeColor("black");
+        vBase.changeColor("white");
+        vNeck.changeColor("white");
+        vTop.changeColor("white");
+        vSpout.changeColor("white");
+        triforce.changeColor("black");
+        inForce.changeColor("white");
+        link.changeColor("black");
     }
 
     /**
@@ -77,9 +120,14 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
-        sun.changeColor("yellow");
+        vHandle.changeColor("blue");
+        vInHandle.changeColor("black");
+        vBase.changeColor("blue");
+        vNeck.changeColor("blue");
+        vTop.changeColor("blue");
+        vSpout.changeColor("blue");
+        triforce.changeColor("yellow");
+        inForce.changeColor("blue");
+        link.changeColor("green");
     }
 }
